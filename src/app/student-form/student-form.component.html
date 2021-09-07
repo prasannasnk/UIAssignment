@@ -10,13 +10,13 @@
     <div class="form-group">
       <label>Name: <span class="lblError">*</span></label>
       <input type="text" class="form-control" formControlName="studentName"   required>
-      <!-- <div *ngIf="addDetails.controls.studentName.invalid"
+      <!-- <div *ngIf="studentName.invalid"
     class="alert alert-danger">
-    <div *ngIf="addDetails.controls.studentName.errors.required">
+    <div *ngIf="studentName.errors.required">
       This Field is Required.
     </div>
 </div> -->
-  </div>
+  </div> 
     <div class="form-group">
         <label >Email: <span class="lblError">*</span></label>
         <input type="email" class="form-control" formControlName="emailId"   required>
@@ -31,8 +31,8 @@
       </div>
 
       <div class="dialog">
-        <button type="submit"  class="btn-primary"
-            [disabled]="!addDetails.valid">Submit</button>
+        <button type="submit"  class="btn btn-primary"
+            >Submit</button>
     </div>
   </form>
             </div>

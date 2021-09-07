@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import { ViewDetailsComponent } from './view-details/view-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
-//import { AlertModule } from 'ngx-bootstrap';
+import {StudentServiceService} from './shared/student-service.service';
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [StudentServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

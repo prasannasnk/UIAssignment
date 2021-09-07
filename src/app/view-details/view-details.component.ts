@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {StudentServiceService} from '../shared/student-service.service';
+import {Subscription} from 'rxjs';
+
 
 @Component({
   selector: 'app-view-details',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewDetailsComponent implements OnInit {
 
-  constructor() { }
+  studentDetails : any[]= [];
+  constructor(private studentService:StudentServiceService) { }
 
   ngOnInit(): void {
   }
+  handleEvents(){
 
+    this.studentService.getStudentDetails().subscribe(resp => {
+      this.studentDetails = resp;
+    })
+  }
 }

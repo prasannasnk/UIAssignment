@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder  } from '@angular/forms';
+import {StudentServiceService} from '../shared/student-service.service';
+import {Subscription} from 'rxjs';
 
 
 
@@ -12,7 +14,9 @@ import { FormGroup, FormControl, Validators, FormBuilder  } from '@angular/forms
 export class StudentFormComponent implements OnInit {
   
   addDetails = new FormGroup({});
-  constructor(private formBuilder: FormBuilder) { }
+  successMessage: string ='';
+
+  constructor(private formBuilder: FormBuilder,private studentService:StudentServiceService) { }
 
   ngOnInit(): void {
   
@@ -33,6 +37,8 @@ export class StudentFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.addDetails);
-    //console.log(this.signupForm.get(‘user_name’).value);
+    this.studentService.addStudentDetails(this.addDetails).subscribe(resp =>{
+      this.successMessage =resp;
+    })
     }
 }
